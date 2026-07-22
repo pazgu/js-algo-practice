@@ -15,19 +15,25 @@ Multiple solutions can exist, any solution is sufficient to return true.
 */
 
 function canPartition(arr) {
-  let total = 1;
-  let j = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (i !== j) {
-      total = total * arr[i];
+  let total = arr[0];
+  let j = arr.length - 1;
+
+  for (let i = 1; i < arr.length - 1; i++) {
+    total = total * arr[i];
+  }
+
+  let i = j;
+
+  while (j > 0) {
+    if (total === arr[j]) {
+      return true;
     }
-    if (i === arr.length - 1 || j === arr.length - 1) {
-      if (total === arr[j]) {
-        return true;
-      }
-      j++;
-      i = 0;
+    j--;
+    total = total * arr[i];
+    if (arr[j] !== 0) {
+      total = total / arr[j];
     }
+    i--;
   }
   return false;
 }
