@@ -10,8 +10,15 @@ Notes
 A string can contain uppercase and lowercase vowels.
 */
 
-function dashed( /*args*/ ) {
-  //your code
+function dashed(str) {
+  const arr = str.split("");
+  const vowels = new Set(["a", "e", "i", "o", "u"]);
+  for (let i = 0; i < arr.length; i++) {
+    if (vowels.has(arr[i].toLowerCase())) {
+      arr[i] = `-${arr[i]}-`;
+    }
+  }
+  return arr.join("");
 }
 
 exports.solution = dashed;
