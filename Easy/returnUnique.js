@@ -10,8 +10,19 @@ Notes
 Keep the same ordering in the output.
 */
 
-function returnUnique( /*args*/ ) {
-  //your code
+//oneway
+function returnUnique(arr) {
+  return arr.filter((num) => arr.indexOf(num) === arr.lastIndexOf(num));
+}
+
+//second way
+function returnUnique(arr) {
+  const counts = new Map(); //Keep the same ordering in the output
+  for (const num of arr) {
+    counts.set(num, (counts.get(num) || 0) + 1);
+  }
+
+  return arr.filter((num) => counts.get(num) === 1);
 }
 
 exports.solution = returnUnique;
