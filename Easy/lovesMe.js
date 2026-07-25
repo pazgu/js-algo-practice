@@ -14,8 +14,20 @@ Remember to return a string.
 The first phrase is always "Loves me".
 */
 
-function lovesMe( /*args*/ ) {
-  //your code
+function lovesMe(n) {
+  const result = [];
+
+  for (let i = 0; i < n; i++) {
+    let phrase = i % 2 === 0 ? "Loves me" : "Loves me not";
+
+    if (i === n - 1) {
+      phrase = phrase.toUpperCase();
+    }
+
+    result.push(phrase);
+  }
+
+  return result.join(", ");
 }
 
 exports.solution = lovesMe;

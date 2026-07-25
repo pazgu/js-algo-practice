@@ -18,8 +18,15 @@ factorChain([2, 4, 6, 7, 12]) ➞ false
 factorChain([10, 1]) ➞ false
 */
 
-function factorChain( /*args*/ ) {
-  //your code
+function factorChain(arr) {
+  let factor = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (!Number.isInteger(arr[i] / factor)) {
+      return false;
+    }
+    factor = arr[i];
+  }
+  return true;
 }
 
 exports.solution = factorChain;

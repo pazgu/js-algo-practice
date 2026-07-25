@@ -40,8 +40,12 @@ Notes
 There might be a floating point precision problem in here...
 */
 
-function getTotalPrice( /*args*/ ) {
-  //your code
+function getTotalPrice(groceries) {
+  const sum = groceries.reduce((total, gro) => {
+    return total + gro.quantity * gro.price;
+  }, 0);
+
+  return Number(sum.toFixed(2));
 }
 
 exports.solution = getTotalPrice;
