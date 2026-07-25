@@ -30,8 +30,21 @@ Notes
 All inputs are strings, no uppercases and all output must be strings.
 */
 
-function encrypt( /*args*/ ) {
-  //your code
+function encrypt(str) {
+  const reversed = str.split("").reverse();
+
+  const constants = {
+    a: 0,
+    e: 1,
+    i: 2,
+    o: 2,
+    u: 3,
+  };
+
+  const replace = reversed.map((ch) => {
+    return ch in constants ? constants[ch] : ch;
+  });
+  return replace.join("") + "aca";
 }
 
 exports.solution = encrypt;
